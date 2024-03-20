@@ -1,0 +1,132 @@
+---> Inheritance:- 
+      The child class acquires the properties, methods defined in the parent classs.
+      Inheritance is used for code reusability.
+      parent class is also called as Base class.
+
+      Their are FOUR types of Inheritance:-
+      1} Single Inheritance.
+      2} Multi Level Inheritance.
+      3} Hierarchial Inheritance.
+      4} Multiple Inheritance.
+
+----> Single inheritance:- Accessing properties and methods from single parent class to single child class is Single Inheritance.
+          Parent
+            ||
+          Child
+Ex:-
+    class parent:
+        def __init__ (self, property, cash):
+            self.property = property
+            self.cash = cash
+        def get_property(self):
+            return self.property+2
+    class child(parent):
+        pass
+
+    x = parent(2,2)
+    y = child(10, 15)
+    print(x.property)
+    print(y.property)
+    print(x.get_property())
+    print(y.get_property())
+OUTPUT:-
+2
+10
+4
+12
+
+-----> Multi LEVEL inheritance:- Accessing properties and methods from single parent class to child class and sub child classes is 
+                                 Multi Level Inheritance.
+          Parent
+            ||     
+          Child1(ParentOfChild2)  
+            ||
+          Child2
+Ex:-
+class parent:
+  def __init__ (self, property, cash):
+    self.property = property
+    self.cash = cash
+  def get_property(self):
+    return f"{self.property} and {self.cash}"
+class child(parent):
+  def iamfrom(self):
+    return "Im from Child class"
+class child2(child):
+  pass
+
+x = parent(2,2)
+y = child(10, 15)
+z = child2(20, 30)
+
+print(z.property)
+print(x.get_property())
+print(y.get_property())
+print(z.iamfrom())
+
+OUTPUT:-
+20
+2 and 2
+10 and 15
+Im from Child class
+
+---> Hierarchical Inheritance:- More than one class is created from single parent class is called Hierarchical Inheritance
+ 
+       Parent
+     ||      ||
+   Child1    Child2
+EX:-
+class parent:
+  def __init__ (self, property, cash):
+    self.property = property
+    self.cash = cash
+  def get_property(self):
+    return f"{self.property} and {self.cash}"
+class child1(parent):
+  pass
+class child2(parent):
+  pass
+
+y = child1(10, 15)
+z = child2(20, 30)
+
+print(y.property)
+print(z.property)
+print(y.get_property())
+print(z.get_property())
+
+OUTPUT:-
+10
+20
+10 and 15
+20 and 30
+
+----> Multiple inheritance:- The class having more than one parent class is called Multiple inheritance.
+      Passing multiple class as parameters to single class
+
+        father        mother
+          |              |
+          ----------------
+                  |
+               child
+class father:
+  def __init__ (self, property, cash):
+    self.property = property
+    self.cash = cash
+  def get_property(self):
+    return f"{self.property} and {self.cash}"
+class mother:
+  def iamfrom(self):
+    return "Im from mother"
+class child2(father, mother):
+  pass
+z = child2(20, 30)
+print(z.property)
+print(z.iamfrom())
+print(z.get_property())
+
+OUTPUT:-
+20
+Im from mother
+20 and 30
+
